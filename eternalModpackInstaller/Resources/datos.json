@@ -1,0 +1,18 @@
+{
+  "production": true,
+  "name":  "ISKRALAND MOD V.1.0",
+  "version": 1.0,
+  "titulo": "ISKRALAND MOD PACK INSTALLER",
+  "imagenes": {
+    "fondo": "",
+    "logo": ""
+  },
+  "redes": {
+    "facebook": "",
+    "tiktok": "",
+    "twitter": "",
+    "youtube": "",
+    "twitch": ""
+  }
+
+}
