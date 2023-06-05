@@ -11,6 +11,9 @@ using eternalModpackInstaller.Properties;
 using System.Resources;
 using MaterialSkin.Properties;
 using System.Reflection;
+using System.Diagnostics;
+using System.Windows.Media.Media3D;
+
 
 namespace eternalModpackInstaller
 {
@@ -107,10 +110,6 @@ namespace eternalModpackInstaller
             string path_instancias = Environment.ExpandEnvironmentVariables("%appdata%/MC/MultiMinecraft/system/instancias");
             string path_roaming = Environment.ExpandEnvironmentVariables("%appdata%");
 
-
-
-
-
             try
             {
                 if (folder == 0)
@@ -203,6 +202,7 @@ namespace eternalModpackInstaller
             var datosFromFile = getDatosJsonFromFile();
             Datos datos = getDatos(datosFromFile);
             setDatosToForm(datos);
+            setRedesImagenes(datos);
 
         }
 
@@ -263,6 +263,30 @@ namespace eternalModpackInstaller
             {
                 this.BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             }
+
+            string path_logo = getPathResource(datos.Imagenes.Logo);
+
+
+
+            if (verifyFileExists(path_logo))
+            {
+                try
+                {
+
+                    this.logo.Image = (Image)new Bitmap(path_logo);
+
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+
+                }
+
+            }
+            else
+            {
+                this.logo.Image = (Image)resources.GetObject("pictureBox1.Image");
+            }
         }
 
         private bool verifyFileExists(String file)
@@ -286,7 +310,7 @@ namespace eternalModpackInstaller
         public static string getDatosJsonFromFile()
         {
             var resources = new ResourceManager(typeof(FormularioInicial));
-            string path = @"./datos.json";
+            string path = getPathResource("datos.json");
             string Datos;
 
             if (!File.Exists(path))
@@ -337,7 +361,6 @@ namespace eternalModpackInstaller
 
             }
 
-
         }
 
         private void backgroundWorker1_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e)
@@ -364,6 +387,161 @@ namespace eternalModpackInstaller
             string filePath = System.IO.Path.Combine(currentDirectory, "Resources", file);
 
             return filePath;
+        }
+
+        public void setRedesImagenes(Datos datos)
+        {
+            //textBox1.Text = datos.Redes.Facebook.link;
+
+            if (datos.Redes.Facebook.activo)
+            {
+                try
+                {
+                    this.RedFacebook.Image = (Image)new Bitmap(getPathResource("redes/" + datos.Redes.Facebook.img));
+                }
+                catch
+                {
+                    this.RedFacebook.Image = null;
+                    this.RedFacebook.Cursor = Cursors.Default;
+                }
+
+
+            }
+            else
+            {
+                this.RedFacebook.Visible = false;
+                this.RedFacebook.Cursor = Cursors.Default;
+            }
+
+            if (datos.Redes.tiktok.activo)
+            {
+                this.RedTiktok.Image = (Image)new Bitmap(getPathResource("redes/" + datos.Redes.tiktok.img));
+            }
+            else
+            {
+                this.RedTiktok.Visible = false;
+                this.RedTiktok.Cursor = Cursors.Default;
+            }
+
+            if (datos.Redes.twitter.activo)
+            {
+                try
+                {
+                    this.RedTwitter.Image = (Image)new Bitmap(getPathResource("redes/" + datos.Redes.twitter.img));
+                }
+                catch
+                {
+                    this.RedTwitter.Visible = false;
+                    this.RedTwitter.Image = null;
+                    this.RedTwitter.Cursor = Cursors.Default;
+                }
+
+            }
+            else
+            {
+                this.RedTwitter.Cursor = Cursors.Default;
+            }
+
+            if (datos.Redes.youtube.activo)
+            {
+                try
+                {
+                    this.RedYoutube.Image = (Image)new Bitmap(getPathResource("redes/" + datos.Redes.youtube.img));
+                }
+                catch
+                {
+                    this.RedYoutube.Visible = false;
+                    this.RedYoutube.Image = null;
+                    this.RedYoutube.Cursor = Cursors.Default;
+                }
+
+            }
+            else
+            {
+                this.RedYoutube.Visible = false;
+                this.RedYoutube.Cursor = Cursors.Default;
+            }
+
+            if (datos.Redes.twitch.activo)
+            {
+                try
+                {
+                    this.RedTwitch.Image = (Image)new Bitmap(getPathResource("redes/" + datos.Redes.twitch.img));
+                }
+                catch
+                {
+                    this.RedTwitch.Visible = false;
+                    this.RedTwitch.Image = null;
+                    this.RedTwitch.Cursor = Cursors.Default;
+                }
+
+            }
+            else
+            {
+                this.RedTwitch.Cursor = Cursors.Default;
+            }
+
+        }
+
+
+
+        public bool StartWebLink(string url)
+        {
+            try
+            {
+                ProcessStartInfo psInfo = new ProcessStartInfo
+                {
+                    FileName = url,
+                    UseShellExecute = true
+                };
+                Process.Start(psInfo);
+                return true;
+            }
+            catch (Exception ex)
+            {
+                return false;
+
+            }
+
+        }
+        private void RedFacebook_Click(object sender, EventArgs e)
+        {
+            var datosFromFile = getDatosJsonFromFile();
+            Datos datos = getDatos(datosFromFile);
+            StartWebLink(datos.Redes.Facebook.link);
+
+        }
+        private void RedTiktok_Click(object sender, EventArgs e)
+        {
+            var datosFromFile = getDatosJsonFromFile();
+            Datos datos = getDatos(datosFromFile);
+            StartWebLink(datos.Redes.tiktok.link);
+        }
+
+
+        private void RedTwitter_Click(object sender, EventArgs e)
+        {
+            var datosFromFile = getDatosJsonFromFile();
+            Datos datos = getDatos(datosFromFile);
+            StartWebLink(datos.Redes.twitter.link);
+
+        }
+
+        private void RedYoutube_Click(object sender, EventArgs e)
+        {
+            var datosFromFile = getDatosJsonFromFile();
+            Datos datos = getDatos(datosFromFile);
+            StartWebLink(datos.Redes.youtube.link);
+
+        }
+
+        private void RedTwitch_Click(object sender, EventArgs e)
+        {
+
+            var datosFromFile = getDatosJsonFromFile();
+            Datos datos = getDatos(datosFromFile);
+            StartWebLink(datos.Redes.twitch.link);
+
         }
 
         //private void button1_Click(object sender, EventArgs e)

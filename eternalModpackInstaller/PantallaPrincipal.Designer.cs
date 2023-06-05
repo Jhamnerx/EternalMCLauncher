@@ -31,25 +31,36 @@ namespace eternalModpackInstaller
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FormularioInicial));
-            pictureBox1 = new PictureBox();
+            logo = new PictureBox();
             cboPathInstall = new MaterialSkin.Controls.MaterialComboBox();
             buttonInstall = new MaterialSkin.Controls.MaterialButton();
             backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
             loader = new PictureBox();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
+            RedFacebook = new PictureBox();
+            RedTiktok = new PictureBox();
+            RedTwitter = new PictureBox();
+            RedYoutube = new PictureBox();
+            RedTwitch = new PictureBox();
+            textBox1 = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)loader).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)RedFacebook).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)RedTiktok).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)RedTwitter).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)RedYoutube).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)RedTwitch).BeginInit();
             SuspendLayout();
             // 
-            // pictureBox1
+            // logo
             // 
-            pictureBox1.BackColor = Color.Transparent;
-            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
-            pictureBox1.Location = new Point(97, 12);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(341, 191);
-            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
-            pictureBox1.TabIndex = 6;
-            pictureBox1.TabStop = false;
+            logo.BackColor = Color.Transparent;
+            logo.Image = (Image)resources.GetObject("logo.Image");
+            logo.Location = new Point(97, 12);
+            logo.Name = "logo";
+            logo.Size = new Size(341, 191);
+            logo.SizeMode = PictureBoxSizeMode.StretchImage;
+            logo.TabIndex = 6;
+            logo.TabStop = false;
             // 
             // cboPathInstall
             // 
@@ -66,7 +77,7 @@ namespace eternalModpackInstaller
             cboPathInstall.IntegralHeight = false;
             cboPathInstall.ItemHeight = 43;
             cboPathInstall.Items.AddRange(new object[] { "Instalar en MultiMineCraft", "Instalar el Roaming" });
-            cboPathInstall.Location = new Point(57, 383);
+            cboPathInstall.Location = new Point(57, 327);
             cboPathInstall.MaxDropDownItems = 4;
             cboPathInstall.MouseState = MaterialSkin.MouseState.OUT;
             cboPathInstall.Name = "cboPathInstall";
@@ -81,7 +92,7 @@ namespace eternalModpackInstaller
             buttonInstall.Depth = 0;
             buttonInstall.HighEmphasis = true;
             buttonInstall.Icon = null;
-            buttonInstall.Location = new Point(326, 389);
+            buttonInstall.Location = new Point(326, 336);
             buttonInstall.Margin = new Padding(4, 6, 4, 6);
             buttonInstall.MouseState = MaterialSkin.MouseState.HOVER;
             buttonInstall.Name = "buttonInstall";
@@ -104,13 +115,80 @@ namespace eternalModpackInstaller
             // 
             loader.BackColor = Color.Transparent;
             loader.Image = (Image)resources.GetObject("loader.Image");
-            loader.Location = new Point(224, 204);
+            loader.Location = new Point(224, 196);
             loader.Name = "loader";
             loader.Size = new Size(82, 83);
             loader.SizeMode = PictureBoxSizeMode.StretchImage;
             loader.TabIndex = 10;
             loader.TabStop = false;
             loader.Visible = false;
+            // 
+            // RedFacebook
+            // 
+            RedFacebook.BackColor = Color.Transparent;
+            RedFacebook.Cursor = Cursors.Hand;
+            RedFacebook.Location = new Point(250, 427);
+            RedFacebook.Name = "RedFacebook";
+            RedFacebook.Size = new Size(50, 50);
+            RedFacebook.SizeMode = PictureBoxSizeMode.StretchImage;
+            RedFacebook.TabIndex = 11;
+            RedFacebook.TabStop = false;
+            RedFacebook.Click += RedFacebook_Click;
+            // 
+            // RedTiktok
+            // 
+            RedTiktok.BackColor = Color.Transparent;
+            RedTiktok.Cursor = Cursors.Hand;
+            RedTiktok.Location = new Point(310, 427);
+            RedTiktok.Name = "RedTiktok";
+            RedTiktok.Size = new Size(50, 50);
+            RedTiktok.SizeMode = PictureBoxSizeMode.StretchImage;
+            RedTiktok.TabIndex = 12;
+            RedTiktok.TabStop = false;
+            RedTiktok.Click += RedTiktok_Click;
+            // 
+            // RedTwitter
+            // 
+            RedTwitter.BackColor = Color.Transparent;
+            RedTwitter.Cursor = Cursors.Hand;
+            RedTwitter.Location = new Point(370, 427);
+            RedTwitter.Name = "RedTwitter";
+            RedTwitter.Size = new Size(50, 50);
+            RedTwitter.SizeMode = PictureBoxSizeMode.StretchImage;
+            RedTwitter.TabIndex = 13;
+            RedTwitter.TabStop = false;
+            RedTwitter.Click += RedTwitter_Click;
+            // 
+            // RedYoutube
+            // 
+            RedYoutube.BackColor = Color.Transparent;
+            RedYoutube.Cursor = Cursors.Hand;
+            RedYoutube.Location = new Point(430, 427);
+            RedYoutube.Name = "RedYoutube";
+            RedYoutube.Size = new Size(50, 50);
+            RedYoutube.SizeMode = PictureBoxSizeMode.StretchImage;
+            RedYoutube.TabIndex = 14;
+            RedYoutube.TabStop = false;
+            RedYoutube.Click += RedYoutube_Click;
+            // 
+            // RedTwitch
+            // 
+            RedTwitch.BackColor = Color.Transparent;
+            RedTwitch.Cursor = Cursors.Hand;
+            RedTwitch.Location = new Point(490, 427);
+            RedTwitch.Name = "RedTwitch";
+            RedTwitch.Size = new Size(50, 50);
+            RedTwitch.SizeMode = PictureBoxSizeMode.StretchImage;
+            RedTwitch.TabIndex = 15;
+            RedTwitch.TabStop = false;
+            RedTwitch.Click += RedTwitch_Click;
+            // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(158, 304);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(100, 23);
+            textBox1.TabIndex = 16;
             // 
             // FormularioInicial
             // 
@@ -119,18 +197,29 @@ namespace eternalModpackInstaller
             AutoSize = true;
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
-            ClientSize = new Size(547, 489);
+            ClientSize = new Size(544, 491);
+            Controls.Add(textBox1);
+            Controls.Add(RedTwitch);
+            Controls.Add(RedYoutube);
             Controls.Add(loader);
+            Controls.Add(RedTwitter);
             Controls.Add(buttonInstall);
+            Controls.Add(RedTiktok);
             Controls.Add(cboPathInstall);
-            Controls.Add(pictureBox1);
+            Controls.Add(RedFacebook);
+            Controls.Add(logo);
             Icon = (Icon)resources.GetObject("$this.Icon");
             MaximizeBox = false;
             Name = "FormularioInicial";
             StartPosition = FormStartPosition.CenterScreen;
             Load += Form1_Load;
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)logo).EndInit();
             ((System.ComponentModel.ISupportInitialize)loader).EndInit();
+            ((System.ComponentModel.ISupportInitialize)RedFacebook).EndInit();
+            ((System.ComponentModel.ISupportInitialize)RedTiktok).EndInit();
+            ((System.ComponentModel.ISupportInitialize)RedTwitter).EndInit();
+            ((System.ComponentModel.ISupportInitialize)RedYoutube).EndInit();
+            ((System.ComponentModel.ISupportInitialize)RedTwitch).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -139,10 +228,16 @@ namespace eternalModpackInstaller
 
 
         private MaterialSkin.Controls.MaterialDrawer materialDrawer1;
-        private PictureBox pictureBox1;
+        private PictureBox logo;
         private MaterialSkin.Controls.MaterialComboBox cboPathInstall;
         private MaterialSkin.Controls.MaterialButton buttonInstall;
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private PictureBox loader;
+        private PictureBox RedFacebook;
+        private PictureBox RedTiktok;
+        private PictureBox RedTwitter;
+        private PictureBox RedYoutube;
+        private PictureBox RedTwitch;
+        private TextBox textBox1;
     }
 }

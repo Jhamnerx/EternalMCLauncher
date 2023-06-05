@@ -4,15 +4,35 @@
   "version": 1.0,
   "titulo": "ISKRALAND MOD PACK INSTALLER",
   "imagenes": {
-    "fondo": "",
-    "logo": ""
+    "fondo": "fondo.jpg",
+    "logo": "logo.png"
   },
   "redes": {
-    "facebook": "",
-    "tiktok": "",
-    "twitter": "",
-    "youtube": "",
-    "twitch": ""
+    "facebook": {
+		"activo": true,
+		"img": "facebook.png",
+		"link": "https://www.facebook.com/"
+	},
+    "tiktok": {
+		"activo": true,
+		"img": "tiktok.jpg",
+		"link": "https://www.tiktok.com/"
+	},
+    "twitter": {
+		"activo": true,
+		"img": "twitter.png",
+		"link": "https://twitter.com/home?lang=es"
+	},
+    "youtube": {
+		"activo": true,
+		"img": "youtube.jpg",
+		"link": "https://www.youtube.com/"
+	},
+    "twitch": {
+		"activo": true,
+		"img": "twitch.png",
+		"link": "https://www.twitch.tv/"
+	},
   }
 
 }

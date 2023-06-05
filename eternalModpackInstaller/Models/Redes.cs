@@ -8,11 +8,30 @@ namespace eternalModpackInstaller.Models
 {
     public class Redes
     {
-        public string Facebook { get; set; }
-        public string Tiktok { get; set; }
-        public string Twitter { get; set; }
-        public string Youtube { get; set; }
-        public string Twitch { get; set; }
+        public Facebook Facebook { get; set; }
+        public Tiktok tiktok { get; set; }
+        public Twitter twitter { get; set; }
+        public Youtube youtube { get; set; }
+        public Twitch twitch { get; set; }
 
+
+        public List<Redes> getRedes()
+        {
+
+            List<Redes> redes = new List<Redes>
+            {
+                new Redes {
+                    Facebook = this.Facebook,
+                    tiktok = this.tiktok,
+                    twitter = this.twitter,
+                    youtube = this.youtube,
+                    twitch = this.twitch,
+                },
+            };
+
+            return redes;
+
+
+        }
     }
 }
