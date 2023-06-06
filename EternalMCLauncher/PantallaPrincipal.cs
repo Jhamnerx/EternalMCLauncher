@@ -70,7 +70,7 @@ namespace EternalMCLauncher
             }
             else
             {
-                if (verifyInstalledRoaming(path_roaming))
+                if (!verifyInstalledRoaming(path_roaming))
                 {
                     if (exist)
                     {
@@ -90,12 +90,12 @@ namespace EternalMCLauncher
                     else
                     {
                         MsgBoxResult.Ok.Equals(MsgBoxResult.Ok);
-                        MessageBox.Show("No se encontr� el archivo requerido", "Archivo no Existe");
+                        MessageBox.Show("No se encontró el archivo requerido", "Archivo no Existe");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Ya hay una instalaci�n en Roaming", "Error al instalar");
+                    MessageBox.Show("Ya hay una instalación en Roaming", "Error al instalar");
                 }
 
             }
@@ -145,6 +145,14 @@ namespace EternalMCLauncher
 
                     createInstancia(path_instancias, max_instancia);
                 }
+                else
+                {
+
+
+                    string path = getPathResource("minecraft.zip");
+                    ZipFile.ExtractToDirectory(path, path_roaming, System.Text.Encoding.UTF8, true);
+
+                }
 
 
             }
@@ -165,7 +173,7 @@ namespace EternalMCLauncher
 
                 Instancia instancia = new Instancia();
                 instancia.Nombre = datos.Name;
-                instancia.Icono = "art-Creeper";
+                instancia.Icono = "mini-steve";
 
                 string InstanciaJSon = JsonConvert.SerializeObject(instancia);
                 Directory.CreateDirectory(path + "/" + max_instancia);
@@ -372,7 +380,7 @@ namespace EternalMCLauncher
         private void backgroundWorker1_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
             loader.Visible = false;
-            MessageBox.Show("Se ha completado la instalaci�n", "Finalizado");
+            MessageBox.Show("Se ha completado la instalación", "Finalizado");
         }
 
         private void backgroundWorker1_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)

@@ -87,6 +87,7 @@ namespace EternalMCLauncher
             // buttonInstall
             // 
             buttonInstall.AutoSizeMode = AutoSizeMode.GrowAndShrink;
+            buttonInstall.Cursor = Cursors.Hand;
             buttonInstall.Density = MaterialSkin.Controls.MaterialButton.MaterialButtonDensity.Default;
             buttonInstall.Depth = 0;
             buttonInstall.HighEmphasis = true;
