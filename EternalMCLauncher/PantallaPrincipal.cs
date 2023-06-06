@@ -3,11 +3,11 @@ using System.IO.Compression;
 using System.IO;
 using System.Reflection.Metadata.Ecma335;
 using Newtonsoft.Json;
-using eternalModpackInstaller.Models;
+using EternalMCLauncher.Models;
 using System.Windows.Shapes;
 using Microsoft.VisualBasic.Devices;
 using System;
-using eternalModpackInstaller.Properties;
+using EternalMCLauncher.Properties;
 using System.Resources;
 using MaterialSkin.Properties;
 using System.Reflection;
@@ -15,7 +15,7 @@ using System.Diagnostics;
 using System.Windows.Media.Media3D;
 
 
-namespace eternalModpackInstaller
+namespace EternalMCLauncher
 {
     public partial class FormularioInicial : Form
     {
@@ -90,12 +90,12 @@ namespace eternalModpackInstaller
                     else
                     {
                         MsgBoxResult.Ok.Equals(MsgBoxResult.Ok);
-                        MessageBox.Show("No se encontró el archivo requerido", "Archivo no Existe");
+                        MessageBox.Show("No se encontrï¿½ el archivo requerido", "Archivo no Existe");
                     }
                 }
                 else
                 {
-                    MessageBox.Show("Ya hay una instalación en Roaming", "Error al instalar");
+                    MessageBox.Show("Ya hay una instalaciï¿½n en Roaming", "Error al instalar");
                 }
 
             }
@@ -372,7 +372,7 @@ namespace eternalModpackInstaller
         private void backgroundWorker1_RunWorkerCompleted(object sender, System.ComponentModel.RunWorkerCompletedEventArgs e)
         {
             loader.Visible = false;
-            MessageBox.Show("Se ha completado la instalación", "Finalizado");
+            MessageBox.Show("Se ha completado la instalaciï¿½n", "Finalizado");
         }
 
         private void backgroundWorker1_ProgressChanged(object sender, System.ComponentModel.ProgressChangedEventArgs e)
@@ -542,6 +542,11 @@ namespace eternalModpackInstaller
             Datos datos = getDatos(datosFromFile);
             StartWebLink(datos.Redes.twitch.link);
 
+        }
+
+        private void FormularioInicial_Leave(object sender, EventArgs e)
+        {
+            System.Windows.Forms.Application.Exit();
         }
 
         //private void button1_Click(object sender, EventArgs e)

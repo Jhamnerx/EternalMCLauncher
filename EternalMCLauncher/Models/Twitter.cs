@@ -4,9 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace eternalModpackInstaller.Models
+namespace EternalMCLauncher.Models
 {
-    public class Facebook
+    public class Twitter
     {
         public bool activo { get; set; }
         public string img { get; set; }

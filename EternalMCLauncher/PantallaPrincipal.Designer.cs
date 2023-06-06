@@ -1,6 +1,6 @@
-﻿using eternalModpackInstaller.Models;
+﻿using EternalMCLauncher.Models;
 
-namespace eternalModpackInstaller
+namespace EternalMCLauncher
 {
     partial class FormularioInicial
     {
@@ -41,7 +41,6 @@ namespace eternalModpackInstaller
             RedTwitter = new PictureBox();
             RedYoutube = new PictureBox();
             RedTwitch = new PictureBox();
-            textBox1 = new TextBox();
             ((System.ComponentModel.ISupportInitialize)logo).BeginInit();
             ((System.ComponentModel.ISupportInitialize)loader).BeginInit();
             ((System.ComponentModel.ISupportInitialize)RedFacebook).BeginInit();
@@ -183,13 +182,6 @@ namespace eternalModpackInstaller
             RedTwitch.TabStop = false;
             RedTwitch.Click += RedTwitch_Click;
             // 
-            // textBox1
-            // 
-            textBox1.Location = new Point(158, 304);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 16;
-            // 
             // FormularioInicial
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -198,7 +190,6 @@ namespace eternalModpackInstaller
             BackgroundImage = (Image)resources.GetObject("$this.BackgroundImage");
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(544, 491);
-            Controls.Add(textBox1);
             Controls.Add(RedTwitch);
             Controls.Add(RedYoutube);
             Controls.Add(loader);
@@ -213,6 +204,7 @@ namespace eternalModpackInstaller
             Name = "FormularioInicial";
             StartPosition = FormStartPosition.CenterScreen;
             Load += Form1_Load;
+            Leave += FormularioInicial_Leave;
             ((System.ComponentModel.ISupportInitialize)logo).EndInit();
             ((System.ComponentModel.ISupportInitialize)loader).EndInit();
             ((System.ComponentModel.ISupportInitialize)RedFacebook).EndInit();
@@ -226,8 +218,6 @@ namespace eternalModpackInstaller
 
         #endregion
 
-
-        private MaterialSkin.Controls.MaterialDrawer materialDrawer1;
         private PictureBox logo;
         private MaterialSkin.Controls.MaterialComboBox cboPathInstall;
         private MaterialSkin.Controls.MaterialButton buttonInstall;
@@ -238,6 +228,5 @@ namespace eternalModpackInstaller
         private PictureBox RedTwitter;
         private PictureBox RedYoutube;
         private PictureBox RedTwitch;
-        private TextBox textBox1;
     }
 }

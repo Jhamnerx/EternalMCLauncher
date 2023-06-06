@@ -1,4 +1,4 @@
-namespace eternalModpackInstaller
+namespace EternalMCLauncher
 {
     internal static class Program
     {
