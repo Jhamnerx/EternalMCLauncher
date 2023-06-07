@@ -119,6 +119,7 @@ namespace EternalMCLauncher
                     string[] directorios_full = Directory.GetDirectories(path_instancias, "*");
                     int max_instancia = 0;
 
+                    
                     if (directorios_full.Length != 0)
                     {
 
@@ -135,8 +136,8 @@ namespace EternalMCLauncher
                     }
                     else
                     {
-                        int v = int.Parse(instancias.Max()) + 1;
-                        max_instancia = v;
+                        max_instancia = 1;
+               
 
                     }
 
