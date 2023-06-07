@@ -1,0 +1,6 @@
+;El comentario siguiente contiene secuencias de órdenes para auto extracción
+
+Path=%appdata%\\Eternal Launcher\\
+SavePath
+Setup=EternalMCLauncher.exe
+Title=Eternal MC Launcher
